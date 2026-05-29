@@ -6,9 +6,9 @@ spring:
     name: SmartAttendanceSystem
 
   datasource:
-    url: mysql://avnadmin:<redacted>@efssas-db1-efssasdb1.l.aivencloud.com:25853/defaultdb?ssl-mode=REQUIRED
-    username: avnadmin
-    password: AVNS_hGQnTQjG-lsqgg5Yay_
+    url: ${DB_URL:jdbc:mysql://localhost:3306/smartAttendanceSystem_DB?createDatabaseIfNotExist=true&useSSL=false}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
@@ -24,5 +24,5 @@ spring:
       enabled: true
 
 jwt:
-  secret: EfsSasSuperSecretKeyForIgnouProjectDoNotShare
+  secret: ${JWT_SECRET:EfsSasSuperSecretKeyForIgnouProjectDoNotShare}
   expiration: 36000000
